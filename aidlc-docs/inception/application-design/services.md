@@ -87,3 +87,30 @@
 - Phase 1.4: ブラウザ通知・プッシュ通知への拡張
 
 **依存コンポーネント**: BE-08
+
+---
+
+## SVC-08: AddictionEngineService【依存性強化】
+**責務**: 依存性強化メカニズムの統合管理（可変報酬・ストリーク・損失回避通知）
+
+**オーケストレーション**:
+
+**可変報酬フロー**:
+1. AchievementService から達成確定イベントを受け取る
+2. `calculateVariableReward(basePoints)` で可変ポイントを計算
+3. BE-03 PointHandler にポイント加算を依頼
+4. AI-06 PraiseMessageGenerator で称賛メッセージを生成
+5. BE-08 SSEHandler で `{ type: 'point_update', points, isBonus, praiseMessage }` を配信
+
+**ストリーク管理フロー**:
+1. ポイント加算時に `updateStreak(userId)` を呼び出す
+2. ストリーク状態を INF-03 DynamoDB に記録
+3. ダッシュボード表示時に `getStreakStatus(userId)` を返す
+
+**損失回避通知フロー（毎日0時）**:
+1. `checkDailyStreak()` をスケジューラーで起動
+2. 当日未獲得ユーザーを抽出
+3. BE-08 SSEHandler で損失回避メッセージを配信
+4. Phase 1.4: SVC-07 RealtimeNotificationService 経由でプッシュ通知
+
+**依存コンポーネント**: BE-03, BE-08, AI-06, INF-02, INF-03, SVC-05

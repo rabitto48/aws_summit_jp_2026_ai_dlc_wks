@@ -1,10 +1,11 @@
 # AI-DLC State Tracking
 
 ## Project Information
-- **Project Name**: 達成感を可視化するアプリケーション
+- **Project Name**: 人をダメにするアプリケーション（旧: 達成感を可視化するアプリケーション）
 - **Project Type**: Greenfield
 - **Start Date**: 2026-05-09T19:28:42+09:00
-- **Current Stage**: INCEPTION - Workflow Planning
+- **Redesign Date**: 2026-05-09T22:05:13+09:00
+- **Current Stage**: INCEPTION - Redesign Complete / Ready for CONSTRUCTION PHASE
 
 ## Execution Plan Summary
 - **Total Stages**: 11（スキップ除く）
@@ -21,6 +22,14 @@
 - [x] Workflow Planning - COMPLETED (2026-05-09T21:06:11+09:00)
 - [x] Application Design - COMPLETED (2026-05-09T21:18:11+09:00)
 - [x] Units Generation - COMPLETED (2026-05-09T21:46:30+09:00)
+- [x] **Inception Phase Redesign - COMPLETED (2026-05-09T22:05:13+09:00)**
+  - requirements.md: ビジネス意図・依存性設計原則・FR-07/08追加
+  - personas.md: 心理的特性・ダメになっていく過程を追加
+  - stories.md: So-that節書き直し・US-21〜23追加（可変報酬・ストリーク・称賛）
+  - application-design.md: FE-08・FE-09・AI-06・SVC-08追加
+  - components.md / component-methods.md / services.md: 新コンポーネント反映
+  - unit-of-work.md: 新コンポーネント反映
+  - unit-of-work-story-map.md: US-21〜23追加
 - [x] ⛔ INCEPTION → CONSTRUCTION 移行ゲート（明示的承認必須）
 
 ### 🟢 CONSTRUCTION PHASE
